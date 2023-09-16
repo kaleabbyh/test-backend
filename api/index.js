@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.send("welcome to song API");
 });
-app.use("/api/song", require("../routes/songRoute"));
+app.use("/api", require("../routes/songRoute"));
 
 const PORT = process.env.PORT || 5000;
 

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const dockerConnect = "mongodb://mongo:27017/test";
 
 const connectDB = async () => {
   try {
@@ -6,6 +7,7 @@ const connectDB = async () => {
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      family: 4,
     });
     console.log("successfully connected to mongodb");
   } catch (err) {

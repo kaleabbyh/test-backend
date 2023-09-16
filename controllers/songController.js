@@ -3,10 +3,9 @@ const Song = require("../models/songModel");
 
 // @desc    add new song
 // @route   POST /api/song/addSong
-// @access  Public
 const addSong = asyncHandler(async (req, res) => {
-  const { title, artist, Album, Genre } = req.body;
-  if (!title || !artist || !Album || !Genre) {
+  const { title, artist, album, genre } = req.body;
+  if (!title || !artist || !album || !genre) {
     res.send("please add all fields");
   }
   const song = await Song.create(req.body);
@@ -20,7 +19,7 @@ const addSong = asyncHandler(async (req, res) => {
 
 // @desc    get all songs
 // @route   POST /api/song/getAllSongs
-// @access  Public
+
 const getAllSongs = asyncHandler(async (req, res) => {
   const songs = await Song.find();
   if (songs) {
@@ -33,7 +32,6 @@ const getAllSongs = asyncHandler(async (req, res) => {
 
 // @desc   edit song
 // @route   POST /api/song/editSong/:id
-// @access  Public
 const editSong = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const updated = await Song.findByIdAndUpdate(id, req.body, { new: true });
@@ -47,7 +45,6 @@ const editSong = asyncHandler(async (req, res) => {
 
 // @desc    delete song
 // @route   POST /api/song/deleteSong/:id
-// @access  Public
 const deleteSong = asyncHandler(async (req, res) => {
   const id = req.params.id;
   const deleted = await Song.findByIdAndDelete(id);

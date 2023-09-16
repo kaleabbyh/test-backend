@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - db:/data/db
+
+  app:
+    depends_on:
+      - mongo
+    container_name: docker-node-mongo
+    restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:

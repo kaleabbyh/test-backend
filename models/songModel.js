@@ -7,15 +7,15 @@ const songSchema = mongoose.Schema(
       required: [true, "Please add a title"],
     },
 
-    Artist: {
+    artist: {
       type: String,
       required: [true, "Please add a Artist"],
     },
-    Album: {
+    album: {
       type: String,
       required: [true, "Please add a Album"],
     },
-    Genre: {
+    genre: {
       type: String,
       required: [true, "Please add a Genre"],
     },
