@@ -43,17 +43,6 @@ const editSong = asyncHandler(async (req, res) => {
   }
 });
 
-// const editSong = asyncHandler(async (req, res) => {
-//   const id = req.params.id;
-//   const updated = await Song.findByIdAndUpdate(id, req.body, { new: true });
-//   if (updated) {
-//     res.status(201).json(updated);
-//   } else {
-//     res.status(400);
-//     throw new Error("no song to update");
-//   }
-// });
-
 // @desc    delete song
 // @route   POST /api/song/deleteSong/:id
 const deleteSong = asyncHandler(async (req, res) => {
