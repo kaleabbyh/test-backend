@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const dockerConnect = "mongodb://mongo:27017/test";
 
 const connectDB = async () => {
   try {
     const uri = process.env.MGDB;
+    const dockerConnect = "mongodb://mongo:27017/test";
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
