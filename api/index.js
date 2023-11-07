@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api", require("../routes/miningRoute"));
-
+app.use("/api", require("../routes/userRoute"));
 app.use("/api", require("../routes/songRoute"));
 
 //////////////////////////////////////////////////////////////////////////
@@ -170,7 +170,7 @@ const serverURL = "https://sms.yegara.com/api2/send";
 const username = "kaleab";
 const password = "-4S0SrR1T@;smi*#L4n";
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   connectDB();
   console.log(`app running on port ${PORT}`);
