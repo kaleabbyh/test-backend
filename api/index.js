@@ -3,24 +3,20 @@ const cors = require("cors");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
-//const connectDB = require("../config/db");
+const connectDB = require("../config/db");
 const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.send("welcome to Food Recipe API");
+  res.send("welcome to grandstande API");
 });
 
-app.post("/signup", async (req, res) => {
-  const { name } = req.body.input;
-  return res.json({
-    name: name,
-  });
-});
+app.use("/api", require("../routes/miningRoute"));
 
-//app.use("/api", require("../routes/songRoute"));
+app.use("/api", require("../routes/songRoute"));
+
 //////////////////////////////////////////////////////////////////////////
 //Register
 
@@ -169,9 +165,13 @@ const generateToken = (id) => {
   return token;
 };
 
-const PORT = process.env.PORT || 5000;
+const axios = require("axios");
+const serverURL = "https://sms.yegara.com/api2/send";
+const username = "kaleab";
+const password = "-4S0SrR1T@;smi*#L4n";
 
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  // connectDB();
+  connectDB();
   console.log(`app running on port ${PORT}`);
 });
